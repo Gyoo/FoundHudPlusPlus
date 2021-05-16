@@ -1,0 +1,18 @@
+<metadata>
+	<name>Found Hud++</name>
+	<directory>found hud++</directory>
+	<description>
+		A fully configurable mod that displays extra information on screen. Tailored specificllay for streamers who are tired of answering the same questions all the time like "what character are your playing ?" or "can you share the seed ?" and such. 
+
+		Works best with [url=https://steamcommunity.com/sharedfiles/filedetails/?id=836319872]Mod Config[/url] to configure the block position, which information you want to display, and more!
+
+		This mod is open source. The code can be found on [url=https://github.com/Gyoo/FoundHudPlusPlus]GitHub[/url]. Any help is welcome, please check the issues board to see what needs to be done. If you have issues, this is also the place to let me know!
+	</description>
+	<version>1.0</version>
+	<visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Tweaks"/>
+    <tag id="Floors"/>
+    <tag id="Challenges"/>
+</metadata>
+
