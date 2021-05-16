@@ -5,7 +5,7 @@ FHPP = FHPP or {}
 require("fhpp_data")
 require("fhpp_config")
 FHPP.Config = FHPP.DefaultConfig
-FHPP.Config.Version = "1.0"
+FHPP.Config.Version = "1.0.1"
 
 require("mod_config_menu")
 
@@ -50,7 +50,11 @@ local function onRender(t)
       end
     end
     
-    if(FHPP.Config["ShowCharacterName"]) then table.insert(strings, {"CHARACTER", Isaac.GetPlayer(0):GetName()}) end
+    if(FHPP.Config["ShowCharacterName"]) then 
+      local tainted = ""
+      if(Isaac.GetPlayer(0).SubType >= 21) then tainted = "Tainted " end
+      table.insert(strings, {"CHARACTER", tainted .. Isaac.GetPlayer(0):GetName()}) 
+    end
     
     if(FHPP.Config["ShowLevelName"]) then table.insert(strings, {"LEVEL", Game():GetLevel():GetName(Game():GetLevel():GetStage(), Game():GetLevel():GetStageType(), Game():GetLevel():GetCurses(), 0, false)}) end
     
