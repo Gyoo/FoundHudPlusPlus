@@ -7,7 +7,7 @@ require("fhpp_config")
 FHPP.Config = FHPP.DefaultConfig
 FHPP.Config.Version = "1.0.1"
 
-require("mod_config_menu")
+require("fhpp_mod_config_menu")
 
 function FHPP:PrintExtraStatVertical(Text, Index)
   local finalText = ""
