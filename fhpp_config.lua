@@ -36,6 +36,9 @@ FHPP.DefaultConfig = {
 	-- Toggle Display of Seed
 	-- Default = true
 	["ShowSeed"] = true,
+	-- Toggle Display of Holy Shield status
+	-- Default = true
+	["ShowShield"] = true,
 	-- Toggle Display of info titles. Values: {"None", "Short", "Full"}
 	-- Default = "Full"
 	["ShowTitles"] = "Full"

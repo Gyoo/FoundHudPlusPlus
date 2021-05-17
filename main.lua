@@ -11,8 +11,10 @@ require("fhpp_mod_config_menu")
 
 function FHPP:PrintExtraStatVertical(Text, Index)
   local finalText = ""
-  if(FHPP.Config["ShowTitles"] == "Full") then finalText = FHPP.Titles[Text[1]][1]..": "
-  elseif(FHPP.Config["ShowTitles"] == "Short") then finalText = FHPP.Titles[Text[1]][2]..": "
+  if(Text[1] ~= nil) then
+    if(FHPP.Config["ShowTitles"] == "Full") then finalText = FHPP.Titles[Text[1]][1]..": "
+    elseif(FHPP.Config["ShowTitles"] == "Short") then finalText = FHPP.Titles[Text[1]][2]..": "
+    end
   end
   finalText = finalText .. Text[2]
   Isaac.RenderScaledText(finalText, FHPP.Config["XPosition"], FHPP.Config["YPosition"] + FHPP.Config["LineHeight"] * (Index-1), FHPP.Config["Scale"], FHPP.Config["Scale"], 1, 1, 1, FHPP.Config["Transparency"])
@@ -22,8 +24,10 @@ function FHPP:PrintExtraStatHorizontal(Texts)
   local finalText = ""
   for index, value in ipairs(Texts) do
     local stat = ""
-    if(FHPP.Config["ShowTitles"] == "Full") then stat = FHPP.Titles[value[1]][1]..": "
-    elseif(FHPP.Config["ShowTitles"] == "Short") then stat = FHPP.Titles[value[1]][2]..": "
+    if(value[1] ~= nil) then
+      if(FHPP.Config["ShowTitles"] == "Full") then stat = FHPP.Titles[value[1]][1]..": "
+      elseif(FHPP.Config["ShowTitles"] == "Short") then stat = FHPP.Titles[value[1]][2]..": "
+      end
     end
     stat = stat .. value[2] .. " | "
     finalText = finalText .. stat
@@ -59,6 +63,14 @@ local function onRender(t)
     if(FHPP.Config["ShowLevelName"]) then table.insert(strings, {"LEVEL", Game():GetLevel():GetName(Game():GetLevel():GetStage(), Game():GetLevel():GetStageType(), Game():GetLevel():GetCurses(), 0, false)}) end
     
     if(FHPP.Config["ShowTime"]) then table.insert(strings, {"TIME", FHPP:PrintTime()}) end
+    
+    if(FHPP.Config["ShowShield"]) then 
+      local shield = ""
+      if(Isaac.GetPlayer(0):GetEffects():HasCollectibleEffect(313)) then shield = "Active"
+      else shield = "Inactive"
+      end
+      table.insert(strings, {"SHIELD", shield}) 
+    end
     
     if(FHPP.Config["ShowSeed"]) then table.insert(strings, {"SEED", Game():GetSeeds():GetStartSeedString()}) end
     

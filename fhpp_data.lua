@@ -5,5 +5,6 @@ FHPP.Titles = {
   ["CHARACTER"] = {"Character", "Char."},
   ["LEVEL"] = {"Level", "Lv."},
   ["TIME"] = {"Time", "Time"},
-  ["SEED"] = {"Seed", "Seed"}
+  ["SEED"] = {"Seed", "Seed"},
+  ["SHIELD"] = {"Holy Shield", "Shield"}
 }

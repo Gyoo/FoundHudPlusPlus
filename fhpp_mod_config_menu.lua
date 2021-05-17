@@ -112,7 +112,29 @@ if ModConfigLoaded then
 		}
 	)
   
-	-- Show Challenge Name
+	-- Show Shield status
+	ModConfig.AddSetting(
+		"Found Hud++",
+		"General",
+		{
+			Type = ModConfigMenu.OptionType.BOOLEAN,
+			CurrentSetting = function()
+				return FHPP.Config["ShowShield"]
+			end,
+			Display = function()
+				local onOff = "False"
+				if FHPP.Config["ShowShield"] then
+					onOff = "True"
+				end
+				return 'Display Holy Shield status: ' .. onOff
+			end,
+			OnChange = function(currentBool)
+				FHPP.Config["ShowShield"] = currentBool
+			end
+		}
+	)
+  
+	-- Show Seed
 	ModConfig.AddSetting(
 		"Found Hud++",
 		"General",
