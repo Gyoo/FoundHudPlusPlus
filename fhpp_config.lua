@@ -27,9 +27,9 @@ FHPP.DefaultConfig = {
 	-- Toggle Display of Character name
 	-- Default = true
 	["ShowCharacterName"] = true,
-	-- Toggle Display of Level name
+	-- Toggle Display of Floor name
 	-- Default = true
-	["ShowLevelName"] = true,
+	["ShowFloorName"] = true,
 	-- Toggle Display of Time
 	-- Default = true
 	["ShowTime"] = true,

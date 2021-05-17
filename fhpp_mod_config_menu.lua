@@ -75,17 +75,17 @@ if ModConfigLoaded then
 		{
 			Type = ModConfigMenu.OptionType.BOOLEAN,
 			CurrentSetting = function()
-				return FHPP.Config["ShowLevelName"]
+				return FHPP.Config["ShowFloorName"]
 			end,
 			Display = function()
 				local onOff = "False"
-				if FHPP.Config["ShowLevelName"] then
+				if FHPP.Config["ShowFloorName"] then
 					onOff = "True"
 				end
-				return 'Display Level Name: ' .. onOff
+				return 'Display Floor Name: ' .. onOff
 			end,
 			OnChange = function(currentBool)
-				FHPP.Config["ShowLevelName"] = currentBool
+				FHPP.Config["ShowFloorName"] = currentBool
 			end
 		}
 	)

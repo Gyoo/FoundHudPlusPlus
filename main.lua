@@ -60,7 +60,7 @@ local function onRender(t)
       table.insert(strings, {"CHARACTER", tainted .. Isaac.GetPlayer(0):GetName()}) 
     end
     
-    if(FHPP.Config["ShowLevelName"]) then table.insert(strings, {"LEVEL", Game():GetLevel():GetName(Game():GetLevel():GetStage(), Game():GetLevel():GetStageType(), Game():GetLevel():GetCurses(), 0, false)}) end
+    if(FHPP.Config["ShowFloorName"]) then table.insert(strings, {"FLOOR", Game():GetLevel():GetName(Game():GetLevel():GetStage(), Game():GetLevel():GetStageType(), Game():GetLevel():GetCurses(), 0, false)}) end
     
     if(FHPP.Config["ShowTime"]) then table.insert(strings, {"TIME", FHPP:PrintTime()}) end
     
