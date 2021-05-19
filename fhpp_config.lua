@@ -18,6 +18,9 @@ FHPP.DefaultConfig = {
 	-- Display text horizontally or vertically
 	-- Default = Vertical
 	["Display"] = "Vertical",
+	-- Choose output. Values: {"HUD", "File"}
+	-- Default = HUD
+	["Display"] = "HUD",
 	
 	----------ITEM NAMES-----------
 

@@ -180,6 +180,28 @@ if ModConfigLoaded then
   ---------------------------------------------------------------------------
 	---------------------------------Visuals-----------------------------------
   
+	--Output
+	local output = {"HUD", "File"}
+	ModConfig.AddSetting(
+		"Found Hud++",
+		"Visuals",
+		{
+			Type = ModConfigMenu.OptionType.NUMBER,
+			CurrentSetting = function()
+				return AnIndexOf(output, FHPP.Config["Output"])
+			end,
+			Minimum = 1,
+			Maximum = 2,
+			Display = function()
+				return "Output: " .. FHPP.Config["Output"]
+			end,
+			OnChange = function(currentNum)
+				FHPP.Config["Output"] = output[currentNum]
+			end,
+      Info = {"For file output, the file is named fhpp.txt in the game's root folder"}
+		}
+	)
+  
 	-- Type of display
 	local display = {"Vertical", "Horizontal"}
 	ModConfig.AddSetting(

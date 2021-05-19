@@ -9,15 +9,24 @@ FHPP.Config.Version = "1.0.1"
 
 require("fhpp_mod_config_menu")
 
-function FHPP:PrintExtraStatVertical(Text, Index)
-  local finalText = ""
-  if(Text[1] ~= nil) then
-    if(FHPP.Config["ShowTitles"] == "Full") then finalText = FHPP.Titles[Text[1]][1]..": "
-    elseif(FHPP.Config["ShowTitles"] == "Short") then finalText = FHPP.Titles[Text[1]][2]..": "
+--TODO might wanna refactor some duplicated bits
+function FHPP:PrintExtraStatVertical(Texts)
+  local file = io.open("fhpp.txt", "w")
+  for index, value in ipairs(Texts) do
+    local finalText = ""
+    if(value[1] ~= nil) then
+      if(FHPP.Config["ShowTitles"] == "Full") then finalText = FHPP.Titles[value[1]][1]..": "
+      elseif(FHPP.Config["ShowTitles"] == "Short") then finalText = FHPP.Titles[value[1]][2]..": "
+      end
+    end
+    finalText = finalText .. value[2]
+    if(FHPP.Config["Output"] == "File") then
+      file:write(finalText, "\n")
+    elseif(FHPP.Config["Output"] == "HUD") then 
+      Isaac.RenderScaledText(finalText, FHPP.Config["XPosition"], FHPP.Config["YPosition"] + FHPP.Config["LineHeight"] * (index-1), FHPP.Config["Scale"], FHPP.Config["Scale"], 1, 1, 1, FHPP.Config["Transparency"])
     end
   end
-  finalText = finalText .. Text[2]
-  Isaac.RenderScaledText(finalText, FHPP.Config["XPosition"], FHPP.Config["YPosition"] + FHPP.Config["LineHeight"] * (Index-1), FHPP.Config["Scale"], FHPP.Config["Scale"], 1, 1, 1, FHPP.Config["Transparency"])
+  file:close()
 end
 
 function FHPP:PrintExtraStatHorizontal(Texts)
@@ -33,7 +42,13 @@ function FHPP:PrintExtraStatHorizontal(Texts)
     finalText = finalText .. stat
   end
   finalText = finalText:sub(1, #finalText - 3)
-  Isaac.RenderScaledText(finalText, FHPP.Config["XPosition"], FHPP.Config["YPosition"], FHPP.Config["Scale"], FHPP.Config["Scale"], 1, 1, 1, FHPP.Config["Transparency"])
+  if(FHPP.Config["Output"] == "File") then
+    local file = io.open("fhpp.txt", "w")
+    file:write(finalText)
+    file:close()
+  elseif(FHPP.Config["Output"] == "HUD") then 
+    Isaac.RenderScaledText(finalText, FHPP.Config["XPosition"], FHPP.Config["YPosition"], FHPP.Config["Scale"], FHPP.Config["Scale"], 1, 1, 1, FHPP.Config["Transparency"])
+  end
 end
 
 function FHPP:PrintTime()
@@ -75,9 +90,7 @@ local function onRender(t)
     if(FHPP.Config["ShowSeed"]) then table.insert(strings, {"SEED", Game():GetSeeds():GetStartSeedString()}) end
     
     if(FHPP.Config["Display"] == "Vertical") then
-      for index, value in ipairs(strings) do
-        FHPP:PrintExtraStatVertical(value, index)
-      end
+      FHPP:PrintExtraStatVertical(strings)
     else
       FHPP:PrintExtraStatHorizontal(strings)
     end

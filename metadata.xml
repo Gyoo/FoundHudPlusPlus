@@ -7,9 +7,16 @@
 
 Works best with [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2487535818]Mod Config[/url] to configure the block position, which information you want to display, and more!
 
+Current features :
+- Display of character name, challenge name, Floor, Time, Seed, and Holy Shield status
+- Turn on/off display of any of these
+- Fine tuning of position on screen
+- Horizontal/Vertical display
+- Output to text file for OBS (file named fhpp.txt in the game's root folder)
+
 This mod is open source. The code can be found on [url=https://github.com/Gyoo/FoundHudPlusPlus]GitHub[/url]. Any help is welcome, please check the issues board to see what needs to be done. If you have issues, this is also the place to let me know!
 	</description>
-    <version>1.4</version>
+    <version>1.5</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Tweaks"/>
