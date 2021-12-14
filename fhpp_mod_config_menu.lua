@@ -1,8 +1,7 @@
 -- MOD CONFIG MENU Compatibility
-local ModConfigLoaded, ModConfig = pcall(require, "scripts.modconfig")
-FHPP.ModConfigLoaded = ModConfigLoaded
+FHPP.ModConfigLoaded = ModConfigMenu ~= nil
 
-if ModConfigLoaded then
+if FHPP.ModConfigLoaded then
 	function AnIndexOf(t, val)
 		for k, v in ipairs(t) do
 			if v == val then
@@ -14,18 +13,18 @@ if ModConfigLoaded then
 
 	---------------------------------------------------------------------------
 	-----------------------------------Info------------------------------------
-	ModConfig.AddSpace("Found Hud++", "Info")
-	ModConfig.AddText("Found Hud++", "Info", function() return "Found Hud++" end)
-	ModConfig.AddSpace("Found Hud++", "Info")
-	ModConfig.AddText("Found Hud++", "Info", function() return "Version "..FHPP.Config.Version end)
-	ModConfig.AddSpace("Found Hud++", "Info")
-	ModConfig.AddText("Found Hud++", "Info", function() return "by Gyoo" end)
+	ModConfigMenu.AddSpace("Found Hud++", "Info")
+	ModConfigMenu.AddText("Found Hud++", "Info", function() return "Found Hud++" end)
+	ModConfigMenu.AddSpace("Found Hud++", "Info")
+	ModConfigMenu.AddText("Found Hud++", "Info", function() return "Version "..FHPP.Config.Version end)
+	ModConfigMenu.AddSpace("Found Hud++", "Info")
+	ModConfigMenu.AddText("Found Hud++", "Info", function() return "by Gyoo" end)
 
 	---------------------------------------------------------------------------
 	---------------------------------General-----------------------------------
   
 	-- Show Challenge Name
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"General",
 		{
@@ -47,7 +46,7 @@ if ModConfigLoaded then
 	)
   
 	-- Show Character Name
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"General",
 		{
@@ -69,7 +68,7 @@ if ModConfigLoaded then
 	)
   
 	-- Show Level Name
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"General",
 		{
@@ -91,7 +90,7 @@ if ModConfigLoaded then
 	)
   
 	-- Show Time
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"General",
 		{
@@ -113,7 +112,7 @@ if ModConfigLoaded then
 	)
   
 	-- Show Shield status
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"General",
 		{
@@ -135,7 +134,7 @@ if ModConfigLoaded then
 	)
   
 	-- Show Seed
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"General",
 		{
@@ -158,7 +157,7 @@ if ModConfigLoaded then
 
 	--Show Info Title
 	local indicators = {"None", "Short", "Full"}
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"General",
 		{
@@ -182,7 +181,7 @@ if ModConfigLoaded then
   
 	--Output
 	local output = {"HUD", "File"}
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"Visuals",
 		{
@@ -204,7 +203,7 @@ if ModConfigLoaded then
   
 	-- Type of display
 	local display = {"Vertical", "Horizontal"}
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"Visuals",
 		{
@@ -225,7 +224,7 @@ if ModConfigLoaded then
   
   -- SCALE
 	local textScales = {0.5, 0.75, 1, 1.25, 1.5, 2}
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"Visuals",
 		{
@@ -246,7 +245,7 @@ if ModConfigLoaded then
 
 	-- Transparency
 	local transparencies = {0.1, 0.175, 0.25, 0.3, 0.4, 0.5, 0.6, 0.75, 0.8, 0.9, 1}
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"Visuals",
 		{
@@ -265,7 +264,7 @@ if ModConfigLoaded then
 	)
 
 	--Line Height
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"Visuals",
 		{
@@ -285,7 +284,7 @@ if ModConfigLoaded then
 	)
 
 	--X Position
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"Visuals",
 		{
@@ -305,7 +304,7 @@ if ModConfigLoaded then
 	)
 
 	--Y Position
-	ModConfig.AddSetting(
+	ModConfigMenu.AddSetting(
 		"Found Hud++",
 		"Visuals",
 		{
